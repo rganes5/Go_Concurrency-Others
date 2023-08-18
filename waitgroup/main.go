@@ -8,6 +8,7 @@ import (
 
 var wg sync.WaitGroup
 
+// Demo of waitgroup
 func main() {
 	endPoint := []string{
 		"https://google.com",
