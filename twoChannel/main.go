@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// Two channel communication
 func main() {
 	fmt.Println("Demo of two channel in golang")
 
