@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// race condition
 func main() {
 
 	//var wg sync.WaitGroup
