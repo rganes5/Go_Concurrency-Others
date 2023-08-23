@@ -1,25 +1,16 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"net/http"
+	handlers "sample/handlers"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	url := "https://jsonplaceholder.typicode.com/posts/1"
-	res, err := http.Get(url)
-	if err != nil {
-		fmt.Println("Error is", err)
-	}
-	defer res.Body.Close()
+	router := gin.Default()
+	router.GET("/GetData", handlers.GetHandler)
+	router.POST("/Discount", handlers.DiscountHandler)
+	router.POST("/RegisterHandler", handlers.RegisterHandler)
+	router.Run(":9090")
 
-	var body map[string]interface{}
-
-	err1 := json.NewDecoder(res.Body).Decode(&body)
-	if err1 != nil {
-		fmt.Println("eE", err)
-
-	}
-	fmt.Println(body)
 }
