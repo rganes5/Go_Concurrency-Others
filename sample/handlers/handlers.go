@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"sample/initializers"
 	model "sample/models"
 
 	"github.com/gin-gonic/gin"
@@ -66,5 +67,18 @@ func RegisterHandler(c *gin.Context) {
 		})
 		return
 	}
+
+	db := initializers.GetGormDB()
+
+	if err := db.Create(&body).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to register user",
+		})
+		return
+	}
+
+	c.JSON(http.StatusCreated, gin.H{
+		"message": "User registered successfully",
+	})
 
 }

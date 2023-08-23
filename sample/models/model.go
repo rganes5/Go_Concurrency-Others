@@ -1,4 +1,6 @@
-package model
+package models
+
+import "gorm.io/gorm"
 
 type Post struct {
 	Body   string `json:"body"`
@@ -15,6 +17,7 @@ type Res struct {
 }
 
 type User struct {
-	Name string `json:"name"`
-	Age  int    `json:"age"`
+	gorm.Model
+	Name     string `json:"name"`
+	Password string `json:"password"`
 }
