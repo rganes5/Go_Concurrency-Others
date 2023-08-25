@@ -24,8 +24,7 @@ func ConnectAndSyncDB() {
 		log.Fatal(err)
 	}
 
-	// AutoMigrate tables here
-	// Example:
+	// AutoMigrate tables
 	err = gormDB.AutoMigrate(&models.User{})
 	if err != nil {
 		log.Fatal(err)
