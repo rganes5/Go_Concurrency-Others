@@ -12,6 +12,7 @@ import (
 
 var gormDB *gorm.DB
 
+// Connect to db and sync
 func ConnectAndSyncDB() {
 	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		config.Cfg.Host, config.Cfg.Port, config.Cfg.User, config.Cfg.Password, config.Cfg.DbName)
