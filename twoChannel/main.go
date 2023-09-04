@@ -10,6 +10,7 @@ func main() {
 
 	sCh := make(chan int)
 	rCh := make(chan int)
+
 	slice := make([]int, 100)
 	fmt.Println(slice)
 
