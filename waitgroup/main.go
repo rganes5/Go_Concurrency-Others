@@ -23,6 +23,7 @@ func main() {
 	wg.Wait()
 }
 
+// TO GET THE ENDPOINTS
 func getEndPoint(endPoint string) {
 	defer wg.Done()
 	res, err := http.Get(endPoint)
