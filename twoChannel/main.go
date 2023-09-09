@@ -2,34 +2,39 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
-// Two channel communication demo
 func main() {
-	fmt.Println("Demo of two channel in golang")
-
-	sCh := make(chan int)
-	rCh := make(chan int)
-
 	slice := make([]int, 100)
 	fmt.Println(slice)
 
+	var wg sync.WaitGroup
+	fchann := make(chan int)
+	rchann := make(chan int)
+
+	wg.Add(1)
 	go func() {
+		defer wg.Done()
 		for i := 0; i < 100; i++ {
-			sCh <- i + 1
+			fchann <- i + 1
 		}
+		close(fchann)
 	}()
 
+	wg.Add(1)
 	go func() {
-		for i := 0; i < 100; i++ {
-			value := <-sCh
-			rCh <- value
+		defer wg.Done()
+		for val := range fchann {
+			rchann <- val
 		}
+		close(rchann)
 	}()
 
 	for i := 0; i < 100; i++ {
-		slice[i] = <-rCh
+		slice[i] = <-rchann
 	}
-
 	fmt.Println(slice)
+	wg.Wait()
+
 }
