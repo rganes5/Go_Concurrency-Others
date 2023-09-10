@@ -34,9 +34,13 @@ func main() {
 
 	sendChan := make(chan int)
 	go sendVal(sendChan)
-	for i := 0; i < 6; i++ {
+	for i := 0; i < 5; i++ { //We update the limit by 6 inorder to deadlock
 		fmt.Println(<-sendChan)
 	}
+
+	// for val := range sendChan {
+	// 	fmt.Println(val)
+	// }
 
 }
 
@@ -45,5 +49,5 @@ func sendVal(sendChan chan int) {
 	for i := 0; i < 5; i++ {
 		sendChan <- i
 	}
-	close(sendChan)
+	//close(sendChan)
 }
