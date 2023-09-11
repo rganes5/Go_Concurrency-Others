@@ -9,7 +9,7 @@ import (
 )
 
 func GetEndPoint(c *gin.Context) {
-	url := "https://jsonplaceholder.typicode.com/posts"
+	url := "https://jsonplaceholder.typicode.com/posts/1"
 	//c.Query("url")
 	res, err := http.Get(url)
 	if err != nil {
@@ -20,7 +20,7 @@ func GetEndPoint(c *gin.Context) {
 	}
 	defer res.Body.Close()
 	//var body map[string]interface{}
-	var body []models.Body
+	var body models.Body
 
 	//when using a unmarshall, we should use io.Readall and convert it as a byte slice then do the rest.
 	/*

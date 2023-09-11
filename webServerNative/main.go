@@ -11,6 +11,11 @@ type PingResponse struct {
 	Message string `json:"message"`
 }
 
+type Body struct {
+	Id    int    `json:"id"`
+	Title string `json:"title"`
+}
+
 func pingHandler(w http.ResponseWriter, r *http.Request) {
 	// Respond to a ping request with a pong response
 	response := PingResponse{Message: "pong"}
@@ -25,7 +30,6 @@ func pingHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func fetchAndForwardHandler(w http.ResponseWriter, r *http.Request) {
-	// Make an HTTP GET request to a third-party endpoint
 	thirdPartyURL := "https://jsonplaceholder.typicode.com/posts/1"
 	resp, err := http.Get(thirdPartyURL)
 	if err != nil {
@@ -34,17 +38,29 @@ func fetchAndForwardHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer resp.Body.Close()
 
-	// Read the response body
-	body, err := ioutil.ReadAll(resp.Body)
+	data, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		http.Error(w, "Failed to read response", http.StatusInternalServerError)
 		return
 	}
 
-	// Forward the response as is
+	var body Body
+	err1 := json.Unmarshal(data, &body)
+	if err1 != nil {
+		http.Error(w, "Failed to unmarshal JSON", http.StatusInternalServerError)
+		return
+	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(resp.StatusCode)
-	w.Write(body)
+
+	// Marshal the Body struct into JSON and write it to the response
+	jsonResponse, err := json.Marshal(body)
+	if err != nil {
+		http.Error(w, "Failed to marshal JSON", http.StatusInternalServerError)
+		return
+	}
+	w.Write(jsonResponse)
 }
 
 func main() {
