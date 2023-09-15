@@ -415,14 +415,6 @@ func main() {
 				}`
 
 	// start from here
-
-	/*
-		Objective 1: Check the length of "things"
-		Objective 2: Append the "newData" in "things" of originalData
-		Objective 3: Verify by checking the length of "things"
-
-	*/
-
 	var orgData interface{}
 	var new interface{}
 	_ = json.Unmarshal([]byte(originalData), &orgData)
@@ -431,4 +423,11 @@ func main() {
 	fmt.Println("Old", len(things.([]interface{})))
 	things = append(things.([]interface{}), new)
 	fmt.Println("New", len(things.([]interface{})))
+	/*
+		Objective 1: Check the length of "things"
+		Objective 2: Append the "newData" in "things" of originalData
+		Objective 3: Verify by checking the length of "things"
+
+	*/
+
 }
