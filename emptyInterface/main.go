@@ -36,3 +36,28 @@ func anyType(input any) {
 	fmt.Printf("The value  %v is of type %T \n", input, input)
 
 }
+
+//Type assertion
+
+// You can edit this code!
+// Click here and start typing.
+/*
+func main() {
+	var interfaceVal interface{}
+	interfaceVal = "This is a string"
+
+	checkTypeString := interfaceVal.(string)
+	fmt.Println(checkTypeString)
+
+	checkTypeInt, ok := interfaceVal.(int)
+	if ok {
+		fmt.Println("Success")
+		fmt.Println(checkTypeInt)
+
+	} else {
+		fmt.Printf("type is %T", checkTypeInt)
+
+	}
+
+}
+*/
