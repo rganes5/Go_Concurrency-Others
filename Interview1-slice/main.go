@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// array
 func modifyArray(array [5]int) {
 	array[2] = 50
 	array[3] = 100
