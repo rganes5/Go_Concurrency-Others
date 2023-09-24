@@ -13,6 +13,7 @@ func modifySlice(slice []int) {
 	slice[3] = 100
 }
 
+// main
 func main() {
 	array := [5]int{1, 2, 3, 4, 5}
 	fmt.Println("Before modification", array)
