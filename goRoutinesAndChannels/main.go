@@ -7,6 +7,7 @@ import (
 
 var wg sync.WaitGroup
 
+// channel demo
 func main() {
 
 	//Unidirectional channel
