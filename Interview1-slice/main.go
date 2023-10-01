@@ -8,6 +8,7 @@ func modifyArray(array [5]int) {
 	array[3] = 100
 }
 
+// slice
 func modifySlice(slice []int) {
 	slice[2] = 50
 	slice[3] = 100
