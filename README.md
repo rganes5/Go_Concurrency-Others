@@ -1,1 +1,1 @@
-# Basic Technical refresh 
+# Some basic technical questions for preparation. 
