@@ -1,1 +1,1 @@
-# Some basic technical questions for preparation. 
+# Some basic technical questions for interview preparation. 
