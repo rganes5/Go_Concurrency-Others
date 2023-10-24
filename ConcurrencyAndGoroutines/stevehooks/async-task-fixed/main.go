@@ -8,6 +8,11 @@ import (
 func main() {
 	now := time.Now()
 	ch := make(chan struct{})
+	/* go func() {
+		task1(ch)
+		<-ch
+	}()
+	*/
 	go task1(ch)
 	go task2(ch)
 	go task3(ch)
