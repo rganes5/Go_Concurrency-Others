@@ -11,7 +11,7 @@ func main() {
 	go task2()
 	go task3()
 	go task4()
-	time.Sleep(500 * time.Millisecond)
+	time.Sleep(time.Second)
 	fmt.Println("Elapsed", time.Since(now))
 
 }
