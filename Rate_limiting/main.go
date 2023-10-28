@@ -6,6 +6,8 @@ import (
 	"log"
 	"net"
 	"sync"
+
+	"github.com/rganes5/LCO/Rate_limiting/server"
 )
 
 /*
@@ -15,6 +17,7 @@ If the response is not "success," it logs an error. The client simulates multipl
 */
 
 func main() {
+	server.StartServer()
 	total, max := 10, 3
 	var wg sync.WaitGroup
 	for i := 0; i < total; i += max {
@@ -27,9 +30,9 @@ func main() {
 		for j := 0; j < limit; j++ {
 			go func(j int) {
 				defer wg.Done()
-				conn, err := net.Dial("tcp", ":8080")
+				conn, err := net.Dial("tcp", ":8081")
 				if err != nil {
-					log.Fatalf("could not dial: %v", err)
+					log.Fatalf("could not dial from main: %v", err)
 				}
 				bs, err := ioutil.ReadAll(conn)
 				if err != nil {

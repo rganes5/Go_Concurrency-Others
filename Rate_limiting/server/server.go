@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"log"
@@ -12,8 +12,8 @@ The server code listens on port 8080 using net.Listen and handles incoming conne
 It limits the number of concurrent connections to 3. When a client connects, the server sends a "success" response after simulating heavy work using time.Sleep.
 */
 
-func main() {
-	li, err := net.Listen("tcp", ":8080")
+func StartServer() {
+	li, err := net.Listen("tcp", ":8081")
 	if err != nil {
 		log.Fatalf("could not create listener: %v", err)
 	}
