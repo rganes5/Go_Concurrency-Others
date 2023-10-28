@@ -7,6 +7,11 @@ import (
 	"time"
 )
 
+/*
+The server code listens on port 8080 using net.Listen and handles incoming connections.
+It limits the number of concurrent connections to 3. When a client connects, the server sends a "success" response after simulating heavy work using time.Sleep.
+*/
+
 func main() {
 	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
