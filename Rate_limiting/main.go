@@ -6,8 +6,6 @@ import (
 	"log"
 	"net"
 	"sync"
-
-	"github.com/rganes5/LCO/Rate_limiting/server"
 )
 
 /*
@@ -17,7 +15,6 @@ If the response is not "success," it logs an error. The client simulates multipl
 */
 
 func main() {
-	server.StartServer()
 	total, max := 10, 3
 	var wg sync.WaitGroup
 	for i := 0; i < total; i += max {
