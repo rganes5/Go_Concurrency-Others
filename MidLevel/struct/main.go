@@ -7,6 +7,8 @@ func main() {
 	rec1.Length = 3.4
 	rec1.Width = 3.4
 	fmt.Println(rec1)
+	fmt.Println("rectangle 1:")
+	fmt.Printf("Length: %v & Width: %v \n", rec1.Length, rec1.Width)
 
 	rec2 := Rectangle{4.5, 5.6}
 	fmt.Println(rec2)
@@ -26,7 +28,7 @@ func main() {
 		},
 	}
 
-	fmt.Println("BOB", bob)
+	fmt.Println("BOB:", bob)
 
 }
 
