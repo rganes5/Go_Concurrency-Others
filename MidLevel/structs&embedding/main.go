@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func main() {
 	rec1 := Rectangle{}
@@ -24,11 +27,24 @@ func main() {
 		Salary: 10000,
 		Person: Person{
 			Name: "Bob",
-			age:  25,
+			Age:  25,
 		},
 	}
 
 	fmt.Println("BOB:", bob)
+
+	//to rep as json
+	Ganesh := Person{
+		Name: "Ganesh",
+		Age:  25,
+	}
+	//Marshalling
+	byteSlice, err := json.Marshal(Ganesh)
+	if err != nil {
+		fmt.Println("error marshalling", err.Error())
+	}
+	fmt.Println("JSON", byteSlice)
+	fmt.Printf("JSON string %s", byteSlice)
 
 }
 
@@ -37,9 +53,10 @@ type Rectangle struct {
 	Width  float32
 }
 
+// Field tags
 type Person struct {
-	Name string
-	age  uint8
+	Name string `json:"name"`
+	Age  uint8  `json:"age"`
 	//
 }
 
