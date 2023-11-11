@@ -5,6 +5,7 @@ import (
 	"math"
 )
 
+// Used to group together types based on the methods
 type Shape interface {
 	Area() float32
 	CircumF() float32
@@ -38,6 +39,7 @@ func (s Square) CircumF() float32 {
 	return s.Length * 4
 }
 
+// We could pass square or cirlce or even a rectangle if formed as new to this function
 func printShapeInfo(s Shape) {
 	fmt.Printf("Area of %T is :%0.2f \n", s, s.Area())
 	fmt.Printf("Circumference of %T is :%0.2f \n", s, s.CircumF())

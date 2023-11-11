@@ -13,7 +13,7 @@ func main() {
 }
 
 func Hello(input interface{}) {
-
+	//Type switch
 	switch value := input.(type) {
 	case int:
 		fmt.Println("This value is of type int", value)
@@ -24,6 +24,7 @@ func Hello(input interface{}) {
 	}
 }
 
+// Generics
 type custom interface {
 	int | string | float64
 }
@@ -32,9 +33,9 @@ func generics[c custom](input c) {
 	fmt.Printf("The value  %v is of type %T \n", input, input)
 }
 
+// Aleas of interface *any*
 func anyType(input any) {
 	fmt.Printf("The value  %v is of type %T \n", input, input)
-
 }
 
 //Type assertion
