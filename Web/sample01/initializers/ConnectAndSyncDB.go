@@ -3,8 +3,8 @@ package initializers
 import (
 	"fmt"
 	"log"
-	"sample/config"
-	"sample/models"
+	"sample01/config"
+	"sample01/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

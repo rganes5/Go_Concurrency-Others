@@ -1,0 +1,8 @@
+go 1.20
+
+use(
+./http
+./sample01
+./webServerGin
+./webServerNative
+)

@@ -1,8 +1,8 @@
 package main
 
 import (
-	handlers "sample/handlers"
-	"sample/initializers"
+	handlers "sample01/handlers"
+	"sample01/initializers"
 
 	"github.com/gin-gonic/gin"
 )

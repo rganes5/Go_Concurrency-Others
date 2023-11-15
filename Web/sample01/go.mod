@@ -1,4 +1,4 @@
-module sample
+module sample01
 
 go 1.20
 

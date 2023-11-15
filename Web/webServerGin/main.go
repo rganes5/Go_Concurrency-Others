@@ -1,6 +1,10 @@
 package main
 
-import "github.com/rganes5/LCO/webServerGin/handlers"
+import (
+	"webServerGin/handlers"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	r := gin.Default()

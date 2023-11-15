@@ -3,8 +3,9 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
+	"webServerGin/models"
 
-	"github.com/rganes5/LCO/webServerGin/models"
+	"github.com/gin-gonic/gin"
 )
 
 func GetEndPoint(c *gin.Context) {

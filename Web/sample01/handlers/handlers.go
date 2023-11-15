@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"sample/initializers"
-	model "sample/models"
+	"sample01/initializers"
+	model "sample01/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-swagger/go-swagger/examples/generated/models"

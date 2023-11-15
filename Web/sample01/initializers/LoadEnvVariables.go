@@ -1,6 +1,6 @@
 package initializers
 
-import "sample/config"
+import "sample01/config"
 
 func LoadEnvVariables() {
 	config.LoadConfig()
